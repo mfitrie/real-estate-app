@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:real_estate_app/models/product.dart';
 import 'package:real_estate_app/provider/product_provider.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 class Home extends ConsumerWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final allProducts = ref.watch(productProvider);
+    final allProducts = ref.watch(productsProvider);
 
     return MaterialApp(
       home: BottomNavigationBarExample(allProducts),

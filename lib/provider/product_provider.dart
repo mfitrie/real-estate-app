@@ -1,6 +1,8 @@
 import 'package:real_estate_app/models/product.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+//* run 'dart run build_runner watch
+part 'product_provider.g.dart';
 
 const List<Product> allProducts = [
   Product(id: '1', title: 'Groovy Shorts', price: 12, image: 'assets/products/shorts.png'),
@@ -14,20 +16,20 @@ const List<Product> allProducts = [
   Product(id: '9', title: 'Electric Guitar', price: 79, image: 'assets/products/guitar.png'),
 ];
 
-// @riverpod
-// List<Product> products(ref) {
-//   return allProducts;
-// }
-
-// @riverpod
-// List<Product> reducedProducts(ref) {
-//   return allProducts.where((p) => p.price < 50).toList();
-// }
-
-final productProvider = Provider<List<Product>>((ref) {
+@riverpod
+List<Product> products(ref) {
   return allProducts;
-});
+}
 
-final reducedProductsProvider = Provider<List<Product>>((ref) {
+@riverpod
+List<Product> reducedProducts(ref) {
   return allProducts.where((p) => p.price < 50).toList();
-});
+}
+
+// final productProvider = Provider<List<Product>>((ref) {
+//   return allProducts;
+// });
+
+// final reducedProductsProvider = Provider<List<Product>>((ref) {
+//   return allProducts.where((p) => p.price < 50).toList();
+// });
